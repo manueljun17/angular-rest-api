@@ -1,0 +1,57 @@
+<div class="container custom-container-2">
+    <div *ngIf="Articles">
+      <div class="no-data text-center">
+        <button class="btn btn-outline-primary" routerLink="/create-article">Add Article</button>
+      </div>
+      <h3 class="mb-3 text-center">Articles List</h3>
+  
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Article Id</th>
+              <th scope="col">Title</th>
+              <th scope="col">Body</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let article of Articles.data">
+              <td>{{article.id}}</td>
+              <td>{{article.title}}</td>
+              <td>{{ (article.body.length>50)? (article.body | slice:0:50)+'...':(article.body) }}</td>
+              
+              <td>
+                <button class="edit btn btn-outline-success" routerLink="/update-article/{{article.id}}">Edit</button>
+                <button class="delete btn btn-outline-danger" (click)="deleteArticle(article.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--  -->
+      <nav>
+        <ul class="pagination">
+          <li class="page-item " *ngIf="Articles.current_page !==  1" >
+                <a class="page-link" (click)="firstPage()">First</a>
+          </li>
+          
+          <li class="page-item " [ngClass]="{'disabled': !Articles.prev_page_url}" >
+                <a class="page-link" (click)="prevPage()">Previous</a>
+          </li>
+
+          <li class="page-item active">
+            <a class="page-link">{{Articles.current_page}}</a>
+          </li>
+          
+          <li class="page-item " [ngClass]="{'disabled': !Articles.next_page_url}" >
+            <a class="page-link" (click)="nextPage()" >Next</a>
+          </li>
+
+          <li class="page-item " *ngIf="Articles.next_page_url">
+            <a class="page-link" (click)="lastPage()">Last</a>
+          </li> 
+        </ul>
+      </nav>
+    </div>
+  </div>

@@ -1,0 +1,19 @@
+<div class="container custom-container">
+    <div class="col-md-12">
+      
+      <h3 class="mb-3 text-center">Update Article</h3>
+  
+      <div class="form-group">
+        <input type="text" [(ngModel)]="articleData.title" class="form-control" placeholder="Title">
+      </div>
+  
+      <div class="form-group">
+        <textarea [(ngModel)]="articleData.body" class="form-control"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" (click)="updateArticle()">Update Article</button>
+      </div>
+      
+    </div>
+  </div>
