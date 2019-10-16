@@ -11,7 +11,8 @@ export class UserService {
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('apiToken'),
         })
-    }
+    };
+    
     // Define API
     public apiURL: string = 'http://localhost:8000/api';
 

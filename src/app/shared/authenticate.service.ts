@@ -18,7 +18,7 @@ export class AuthenticationService {
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('apiToken'),
         })
-    }
+    };
 
     constructor(private http: HttpClient) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));

@@ -24,7 +24,7 @@ export class RestApiService {
     'Content-Type': 'application/json',
     'Authorization': localStorage.getItem('apiToken'),
     })
-  }
+  };
 
   
   // HttpClient API get() method => Fetch articles list
